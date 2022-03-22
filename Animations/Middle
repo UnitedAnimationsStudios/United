@@ -1,0 +1,13 @@
+<div id="wb_home">
+<div id="home-overlay"></div>
+<div id="home">
+<div class="col-1">
+<div id="wb_Text1">
+<span style="color:#FFFFFF;font-family:Arial;font-size:32px;line-height:36px;"><strong>Welcome to United Animations Studio</strong></span><span style="color:#FFFFFF;font-family:Arial;font-size:13px;line-height:16px;"><br></span><span style="color:#FFFFFF;font-family:Arial;font-size:15px;line-height:18px;"><br></span><span style="color:#FFFFFF;font-family:Arial;font-size:16px;line-height:18px;">Here you will get all our animation updates also you will recieve new content on our Youtube Channel</span>
+</div>
+<div id="wb_Shape1" style="display:inline-block;width:116px;height:41px;opacity:0.80;z-index:6;position:relative;">
+<a href="https://www.youtube.com/channel/UCVd27QSUaLOB3V4RMrjPQxw"><div id="Shape1"><div id="Shape1_text"><div><span style="color:#FFFFFF;font-family:Arial;font-size:15px;">Our Channel</span></div></div></div></a>
+</div>
+</div>
+</div>
+</div>
