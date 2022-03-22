@@ -1,3 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Page Title</title>
+  <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+</head>
+<body>
+
+<h1>This is a Heading</h1>
+<p>This is a paragraph.</p>
+
+</body>
+</html>
 ## United Animations Studio 
 <head> <script type='text/javascript' src='//pl17129212.effectivecpmcontent.com/e0/e3/a5/e0e3a5a039aa996131246ea3fdbbf704.js'></script> </head>
 ## Kung Fu Panda Legend of Awesomeness Season 2 Episode 8
