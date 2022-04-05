@@ -4,25 +4,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['form_name']) && $_POST
 {
    $success_page = './Logout.html';
    $error_page = './index.html';
-   $database = './usersdb.php';
+   $usernames = array();
+   $passwords = array();
+   $fullnames = array();
+   $emailaddresses = array();
    $crypt_pass = md5($_POST['password']);
    $found = false;
    $db_fullname = '';
    $db_username = '';
    $session_timeout = 600;
-   if (filesize($database) > 0)
+   for ($i=0; $i<count($usernames); $i++)
    {
-      $items = file($database, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
-      foreach ($items as $line)
+      if (($usernames[$i] == $_POST['username'] || $emailaddresses[$i] == $_POST['username']) && $passwords[$i] == $crypt_pass)
       {
-         list($username, $password, $email, $name, $active) = explode('|', trim($line));
-         if (($username == $_POST['username'] || $email == $_POST['username']) && $active != "0" && $password == $crypt_pass)
-         {
-            $found = true;
-            $db_fullname = $name;
-            $db_username = $username;
-            break;
-         }
+         $found = true;
+         $db_fullname = $fullnames[$i];
+         $db_username = $usernames[$i];
       }
    }
    if ($found == false)
@@ -118,7 +115,7 @@ $(document).ready(function()
 <div id="footer">
 <div class="row">
 <div class="col-1">
-<div id="wb_footerText">
+<div id="wb_Text16">
 <p>Copyright © 2022 United Animations.&nbsp; All Rights Reserved</p>
 </div>
 </div>
@@ -137,7 +134,7 @@ $(document).ready(function()
 <div class="col-2">
 <div id="wb_headerMenu" style="display:inline-block;width:257px;height:48px;z-index:4;">
 <ul id="headerMenu" role="menubar" class="nav">
-<li role="menuitem" class="nav-item firstmain"><a class="nav-link headerMenu-effect" href="./index.html" target="_self"><svg class="headerMenu-icon" viewBox="0 0 60 60" version="1.1" xmlns="http://www.w3.org/2000/svg">
+<li role="menuitem" class="nav-item firstmain"><a class="nav-link headerMenu-effect" href="./index.html#home" target="_self"><svg class="headerMenu-icon" viewBox="0 0 60 60" version="1.1" xmlns="http://www.w3.org/2000/svg">
    <path d="M49 34 L49 50 C49 51, 49 51, 48 52 C48 52, 48 52, 47 52 L34 52 L34 40 L26 40 L26 52 L13 52 C12 52, 12 52, 11 52 C11 51, 11 51, 11 50 L11 34 C11 34, 11 34, 11 34 C11 34, 11 34, 11 34 L30 18 L49 34 C49 34, 49 34, 49 34 Z M57 32 L55 34 C54 35, 54 35, 54 35 L54 35 C53 35, 53 35, 53 35 L30 15 L7 35 C6 35, 6 35, 6 35 C6 35, 5 35, 5 34 L3 32 C3 32, 3 31, 3 31 C3 31, 3 31, 3 30 L27 10 C28 10, 29 9, 30 9 C31 9, 32 10, 32 10 L41 17 L41 11 C41 10, 41 10, 41 10 C41 10, 41 10, 42 10 L48 10 C48 10, 49 10, 49 10 C49 10, 49 10, 49 11 L49 24 L56 30 C57 31, 57 31, 57 31 C57 31, 57 32, 57 32"/>
 </svg>
 Home</a>
@@ -160,5 +157,4 @@ TV&nbsp;Shows</a>
 </div>
 </div>
 
-</body>
 </html>
