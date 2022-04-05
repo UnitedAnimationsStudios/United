@@ -1,50 +1,118 @@
 <?php
-session_start();
-if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['form_name']) && $_POST['form_name'] == 'loginform')
+$mysql_server = 'sql10.freesqldatabase.com';
+$mysql_username = 'sql10483934';
+$mysql_password = 'Xj9tsaSVHk';
+$mysql_database = 'sql10483934';
+$mysql_table = 'Login';
+$success_page = './Logout.html';
+$activated_page = './Logout.html';
+$error_message = "";
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['form_name']) && $_POST['form_name'] == 'signupform')
 {
-   $success_page = './Logout.html';
-   $error_page = './index.html';
-   $usernames = array();
-   $passwords = array();
-   $fullnames = array();
-   $emailaddresses = array();
-   $crypt_pass = md5($_POST['password']);
-   $found = false;
-   $db_fullname = '';
-   $db_username = '';
-   $session_timeout = 600;
-   for ($i=0; $i<count($usernames); $i++)
+   $newusername = $_POST['username'];
+   $newemail = $_POST['email'];
+   $newpassword = $_POST['password'];
+   $confirmpassword = $_POST['confirmpassword'];
+   $newfullname = $_POST['fullname'];
+   $website = $_SERVER['HTTP_HOST'];
+   $script = $_SERVER['SCRIPT_NAME'];
+   $timestamp = time();
+   $code = md5($website.$timestamp.rand(100000, 999999));
+   if ($newpassword != $confirmpassword)
    {
-      if (($usernames[$i] == $_POST['username'] || $emailaddresses[$i] == $_POST['username']) && $passwords[$i] == $crypt_pass)
-      {
-         $found = true;
-         $db_fullname = $fullnames[$i];
-         $db_username = $usernames[$i];
-      }
-   }
-   if ($found == false)
-   {
-      header('Location: '.$error_page);
-      exit;
+      $error_message = 'Password and Confirm Password are not the same!';
    }
    else
+   if (!preg_match("/^[A-Za-z0-9-_!@$]{1,50}$/", $newusername))
    {
-      $_SESSION['username'] = $db_username;
-      $_SESSION['fullname'] = $db_fullname;
-      $_SESSION['expires_by'] = time() + $session_timeout;
-      $_SESSION['expires_timeout'] = $session_timeout;
-      $rememberme = isset($_POST['rememberme']) ? true : false;
-      if ($rememberme)
+      $error_message = 'Username is not valid, please check and try again!';
+   }
+   else
+   if (!preg_match("/^[A-Za-z0-9-_!@$]{1,50}$/", $newpassword))
+   {
+      $error_message = 'Password is not valid, please check and try again!';
+   }
+   else
+   if (!preg_match("/^[A-Za-z0-9-_!@$.' &]{1,50}$/", $newfullname))
+   {
+      $error_message = 'Fullname is not valid, please check and try again!';
+   }
+   else
+   if (!preg_match("/^.+@.+\..+$/", $newemail))
+   {
+      $error_message = 'Email is not a valid email address. Please check and try again.';
+   }
+   if (empty($error_message))
+   {
+      $db = mysqli_connect($mysql_server, $mysql_username, $mysql_password);
+      if (!$db)
       {
-         setcookie('username', $db_username, time() + 3600*24*30);
-         setcookie('password', $_POST['password'], time() + 3600*24*30);
+         die('Failed to connect to database server!<br>'.mysqli_error($db));
       }
+      mysqli_select_db($db, $mysql_database) or die('Failed to select database<br>'.mysqli_error($db));
+      mysqli_set_charset($db, 'utf8');
+      $sql = "SELECT username FROM ".$mysql_table." WHERE username = '".$newusername."'";
+      $result = mysqli_query($db, $sql);
+      if ($data = mysqli_fetch_array($result))
+      {
+         $error_message = 'Username already used. Please select another username.';
+      }
+   }
+   if (empty($error_message))
+   {
+      $crypt_pass = password_hash($newpassword, PASSWORD_BCRYPT);
+      $newusername = mysqli_real_escape_string($db, $newusername);
+      $newemail = mysqli_real_escape_string($db, $newemail);
+      $newfullname = mysqli_real_escape_string($db, $newfullname);
+      $sql = "INSERT `".$mysql_table."` (`username`, `password`, `fullname`, `email`, `active`, `code`, `role`) VALUES ('$newusername', '$crypt_pass', '$newfullname', '$newemail', 0, '$code', 'Member')";
+      $result = mysqli_query($db, $sql);
+      mysqli_close($db);
+      $subject = 'Your new account';
+      $message = 'A new account has been setup.';
+      $message .= "\r\nUsername: ";
+      $message .= $newusername;
+      $message .= "\r\nPassword: ";
+      $message .= $newpassword;
+      $message .= "\r\n";
+      $message .= "\r\nhttp://".$website.$script."?user=".$newusername."&code=$code";
+      $header  = "From: United Animations"."\r\n";
+      $header .= "Reply-To: United Animations"."\r\n";
+      $header .= "MIME-Version: 1.0"."\r\n";
+      $header .= "Content-Type: text/plain; charset=utf-8"."\r\n";
+      $header .= "Content-Transfer-Encoding: 8bit"."\r\n";
+      $header .= "X-Mailer: PHP v".phpversion();
+      mail($newemail, $subject, $message, $header);
+      mail('unitedvidsic@gmail.com', $subject, $message, $header);
       header('Location: '.$success_page);
       exit;
    }
 }
-$username = isset($_COOKIE['username']) ? $_COOKIE['username'] : '';
-$password = isset($_COOKIE['password']) ? $_COOKIE['password'] : '';
+else
+if (isset($_GET['code']) && isset($_GET['user']))
+{
+   $db = mysqli_connect($mysql_server, $mysql_username, $mysql_password);
+   if (!$db)
+   {
+      die('Failed to connect to database server!<br>'.mysqli_error($db));
+   }
+   mysqli_select_db($db, $mysql_database) or die('Failed to select database<br>'.mysqli_error($db));
+   mysqli_set_charset($db, 'utf8');
+   $sql = "SELECT * FROM ".$mysql_table." WHERE username = '".$_GET['user']."' AND code = '".$_GET['code']."'";
+   $result = mysqli_query($db, $sql);
+   if ($data = mysqli_fetch_array($result))
+   {
+      $sql = "UPDATE `".$mysql_table."` SET `active` = 1 WHERE `username` = '".$_GET['user']."'";
+      mysqli_query($db, $sql);
+   }
+   else
+   {
+      die ('User not found!');
+   }
+   mysqli_close($db);
+   header("refresh:5;url=".$activated_page);
+   echo 'Your user account was succesfully activated. You\'ll be redirected in about 5 secs. If not, click <a href="'.$activated_page.'">here</a>.';
+   exit;
+}
 ?>
 <!doctype html>
 <html>
@@ -79,41 +147,12 @@ $(document).ready(function()
 <div id="wb_Text9">
 <span style="color:#FF0000;font-family:Arial;font-size:13px;"><br>UNDER DEVELOPEMNT</span><span style="color:#000000;font-family:Arial;font-size:13px;"><br></span>
 </div>
-<div id="wb_Login1" style="display:inline-block;width:100%;z-index:1;">
-<form name="loginform" method="post" accept-charset="UTF-8" action="<?php echo basename(__FILE__); ?>" id="loginform">
-<input type="hidden" name="form_name" value="loginform">
-<table id="Login1">
-<tr>
-   <td class="header">Sign Up</td>
-</tr>
-<tr>
-   <td class="label"><label for="username">User Name</label></td>
-</tr>
-<tr>
-   <td class="row"><input class="input" name="username" type="text" id="username" value="<?php echo $username; ?>"></td>
-</tr>
-<tr>
-   <td class="label"><label for="password">Password</label></td>
-</tr>
-<tr>
-   <td class="row"><input class="input" name="password" type="password" id="password" value="<?php echo $password; ?>"></td>
-</tr>
-<tr>
-   <td class="row"><input id="rememberme" type="checkbox" name="rememberme"><label for="rememberme">Remember me</label></td>
-</tr>
-<tr>
-   <td style="text-align:center;vertical-align:bottom"><input class="button" type="submit" name="login" value="Signup" id="login"></td>
-</tr>
-</table>
-</form>
-
 </div>
 </div>
 </div>
 </div>
-</div>
-<div id="StickyLayer" style="position:fixed;text-align:left;left:auto;right:25px;top:auto;bottom:25px;width:50px;height:50px;z-index:6;">
-<div id="wb_up-arrow" style="position:absolute;left:9px;top:8px;width:24px;height:24px;text-align:center;z-index:2;">
+<div id="StickyLayer" style="position:fixed;text-align:left;left:auto;right:25px;top:auto;bottom:25px;width:50px;height:50px;z-index:5;">
+<div id="wb_up-arrow" style="position:absolute;left:9px;top:8px;width:24px;height:24px;text-align:center;z-index:1;">
 <a href="./index.html#home"><div id="up-arrow"><i class="fa fa-angle-up"></i></div></a></div>
 </div>
 <div id="wb_header">
@@ -122,7 +161,7 @@ $(document).ready(function()
 <div class="col-1">
 </div>
 <div class="col-2">
-<div id="wb_headerMenu" style="display:inline-block;width:268px;height:48px;z-index:3;">
+<div id="wb_headerMenu" style="display:inline-block;width:268px;height:48px;z-index:2;">
 <ul id="headerMenu" role="menubar" class="nav">
 <li role="menuitem" class="nav-item firstmain"><a class="nav-link headerMenu-effect" href="./index.html#home" target="_self"><svg class="headerMenu-icon" viewBox="0 0 60 60" version="1.1" xmlns="http://www.w3.org/2000/svg">
    <path d="M49 34 L49 50 C49 51, 49 51, 48 52 C48 52, 48 52, 47 52 L34 52 L34 40 L26 40 L26 52 L13 52 C12 52, 12 52, 11 52 C11 51, 11 51, 11 50 L11 34 C11 34, 11 34, 11 34 C11 34, 11 34, 11 34 L30 18 L49 34 C49 34, 49 34, 49 34 Z M57 32 L55 34 C54 35, 54 35, 54 35 L54 35 C53 35, 53 35, 53 35 L30 15 L7 35 C6 35, 6 35, 6 35 C6 35, 5 35, 5 34 L3 32 C3 32, 3 31, 3 31 C3 31, 3 31, 3 30 L27 10 C28 10, 29 9, 30 9 C31 9, 32 10, 32 10 L41 17 L41 11 C41 10, 41 10, 41 10 C41 10, 41 10, 42 10 L48 10 C48 10, 49 10, 49 10 C49 10, 49 10, 49 11 L49 24 L56 30 C57 31, 57 31, 57 31 C57 31, 57 32, 57 32"/>
@@ -146,7 +185,7 @@ TV&nbsp;Shows</a>
 </div>
 </div>
 </div>
-
+<a href="https://www.wysiwygwebbuilder.com" target="_blank"><img src="images/builtwithwwb17.png" alt="WYSIWYG Web Builder" style="position:absolute;left:441px;top:2307px;margin: 0;border-width:0;z-index:250" width="16" height="16"></a>
 <div id="wb_footer">
 <div id="footer">
 <div class="row">
@@ -157,6 +196,52 @@ TV&nbsp;Shows</a>
 </div>
 </div>
 </div>
+</div>
+<div id="wb_Signup1" style="position:absolute;left:0px;top:146px;width:970px;height:396px;z-index:9;">
+<form name="signupform" method="post" accept-charset="UTF-8" action="<?php echo basename(__FILE__); ?>" id="signupform">
+<input type="hidden" name="form_name" value="signupform">
+<table id="Signup1">
+<tr>
+   <td class="header">Sign up for a new account</td>
+</tr>
+<tr>
+   <td class="label"><label for="fullname">Full Name</label></td>
+</tr>
+<tr>
+   <td class="row"><input class="input" name="fullname" type="text" id="fullname"></td>
+</tr>
+<tr>
+   <td class="label"><label for="username">User Name</label></td>
+</tr>
+<tr>
+   <td class="row"><input class="input" name="username" type="text" id="username"></td>
+</tr>
+<tr>
+   <td class="label"><label for="password">Password</label></td>
+</tr>
+<tr>
+   <td class="row"><input class="input" name="password" type="password" id="password"></td>
+</tr>
+<tr>
+   <td class="label"><label for="confirmpassword">Confirm Password</label></td>
+</tr>
+<tr>
+   <td class="row"><input class="input" name="confirmpassword" type="password" id="confirmpassword"></td>
+</tr>
+<tr>
+   <td class="label"><label for="email">E-mail</label></td>
+</tr>
+<tr>
+   <td class="row"><input class="input" name="email" type="text" id="email"></td>
+</tr>
+<tr>
+   <td><?php echo $error_message; ?></td>
+</tr>
+<tr>
+   <td style="text-align:center;vertical-align:bottom"><input class="button" type="submit" name="signup" value="Create User" id="signup"></td>
+</tr>
+</table>
+</form>
 </div>
 </body>
 </html>
