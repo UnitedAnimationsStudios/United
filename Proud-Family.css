@@ -8,7 +8,6 @@ body
    line-height: 1.1875;
    margin: 0;
    padding: 0;
-   overflow-x: hidden;
 }
 a
 {
@@ -294,17 +293,26 @@ input:focus, textarea:focus, select:focus
 {
    fill: #333333;
 }
-#Banner1
+#wb_Text1 
 {
+   background-color: transparent;
+   background-image: none;
+   border: 0px solid #000000;
+   border-radius: 0px;
+   padding: 0;
    margin: 0;
-   -webkit-animation: animate-border-fade 1000ms linear 0ms infinite normal both;
-   animation: animate-border-fade 1000ms linear 0ms infinite normal both;
+   text-align: left;
 }
-#Banner2
+#wb_Text1 div
 {
+   text-align: left;
+}
+#wb_Text1
+{
+   display: block;
    margin: 0;
-   -webkit-animation: animate-border-fade 1000ms linear 0ms infinite normal both;
-   animation: animate-border-fade 1000ms linear 0ms infinite normal both;
+   box-sizing: border-box;
+   width: 100%;
 }
 #wb_footer
 {
