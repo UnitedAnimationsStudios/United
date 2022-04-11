@@ -415,13 +415,6 @@ input:focus, textarea:focus, select:focus
 {
    text-align: left;
 }
-#PageFooter2
-{
-   background-color: #F5F5F5;
-   background-image: none;
-   border-radius: 0px;
-   box-sizing: border-box;
-}
 #PageFooter3
 {
    background-color: #F5F5F5;
@@ -458,6 +451,13 @@ input:focus, textarea:focus, select:focus
    text-align: left;
 }
 #PageFooter1
+{
+   background-color: #F5F5F5;
+   background-image: none;
+   border-radius: 0px;
+   box-sizing: border-box;
+}
+#PageFooter2
 {
    background-color: #F5F5F5;
    background-image: none;
