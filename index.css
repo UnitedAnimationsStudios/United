@@ -854,21 +854,6 @@ input:focus, textarea:focus, select:focus
    transform: scaleX(1);
    opacity: 1;
 }
-.headerMenu-icon
-{
-   fill: #FFFFFF;
-   margin-right: 4px;
-   width: 15px;
-   height: 15px;
-}
-#headerMenu a:hover .headerMenu-icon
-{
-   fill: #087EEA;
-}
-#headerMenu > .active .headerMenu-icon
-{
-   fill: #333333;
-}
 #wb_teamCard3
 {
    position: relative;
@@ -1390,4 +1375,36 @@ input:focus, textarea:focus, select:focus
 #wb_cookie_message div
 {
    text-align: center;
+}
+#SiteSearch1
+{
+   border: 1px solid #CCCCCC;
+   border-radius: 4px;
+   background-color: #FFFFFF;
+   background-image: none;
+   color: #000000;
+   font-family: Arial;
+   font-weight: normal;
+   font-style: normal;
+   font-size: 13px;
+   line-height: 16px;
+   padding: 4px 4px 4px 4px;
+   margin: 0;
+   text-align: left;
+}
+#Button1
+{
+   border: 1px solid #2E6DA4;
+   border-radius: 4px;
+   background-color: #3370B7;
+   background-image: none;
+   color: #FFFFFF;
+   font-family: Arial;
+   font-weight: normal;
+   font-style: normal;
+   font-size: 13px;
+   padding: 1px 6px 1px 6px;
+   text-align: center;
+   -webkit-appearance: none;
+   margin: 0;
 }

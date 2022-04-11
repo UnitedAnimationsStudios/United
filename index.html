@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Awesome</title>
+<title>United Animations</title>
 <meta name="generator" content="WYSIWYG Web Builder 17 Trial Version - https://www.wysiwygwebbuilder.com">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="favicon.ico.png" rel="icon" sizes="500x500" type="image/png">
@@ -14,6 +14,17 @@
 <link href="index.css" rel="stylesheet">
 <script src="jquery-1.12.4.min.js"></script>
 <script src="jquery.ui.effect.min.js"></script>
+<script src="searchindex.js"></script>
+<script src="wb.sitesearch.min.js"></script>
+<script>
+var features = 'toolbar=no,menubar=no,location=no,scrollbars=yes,resizable=yes,status=no,left=,top=,width=,height=';
+function searchPage(features)
+{
+   var element = document.getElementById('SiteSearch1');
+   window.open('sitesearch1-results.html?q='+encodeURIComponent(element.value), '', features);
+   return false;
+}
+</script>
 <script src="wwb17.min.js"></script>
 <script>
 $(document).ready(function()
@@ -72,77 +83,12 @@ $(document).ready(function()
    {
       onScrollcontact();
    });
+   searchParseURL('SiteSearch1');
    var iOS = !!navigator.platform && /iPad|iPhone|iPod/.test(navigator.platform);
    if (iOS)
    {
       $('#wb_home').css('background-attachment', 'scroll');
    }
-});
-</script>
-<script>
-/*!
-* jQuery Cookie Plugin
-* https://github.com/carhartl/jquery-cookie
-*
-* Copyright 2011, Klaus Hartl
-* Dual licensed under the MIT or GPL Version 2 licenses.
-* http://www.opensource.org/licenses/mit-license.php
-* http://www.opensource.org/licenses/GPL-2.0
-*/
-(function($) {
-    $.cookie = function(key, value, options) 
-    {
-        if (arguments.length > 1 && (!/Object/.test(Object.prototype.toString.call(value)) || value === null || value === undefined)) 
-        {
-            options = $.extend({}, options);
-
-            if (value === null || value === undefined) 
-            {
-                options.expires = -1;
-            }
-
-            if (typeof options.expires === 'number') 
-            {
-                var days = options.expires, t = options.expires = new Date();
-                t.setDate(t.getDate() + days);
-            }
-
-            value = String(value);
-
-            return (document.cookie = 
-            [
-                encodeURIComponent(key), '=', options.raw ? value : encodeURIComponent(value),
-                options.expires ? '; expires=' + options.expires.toUTCString() : '', // use expires attribute, max-age is not supported by IE
-                options.path ? '; path=' + options.path : '',
-                options.domain ? '; domain=' + options.domain : '',
-                options.secure ? '; secure' : ''
-            ].join(''));
-        }
-        options = value || {};
-        var decode = options.raw ? function(s) { return s; } : decodeURIComponent;
-
-        var pairs = document.cookie.split('; ');
-        for (var i = 0, pair; pair = pairs[i] && pairs[i].split('='); i++) 
-        {
-            if (decode(pair[0]) === key) return decode(pair[1] || ''); // IE saves cookies with empty string as "c; ", e.g. without "=" as opposed to EOMB, thus pair[1] may be undefined
-        }
-        return null;
-    };
-})(jQuery);
-
-$(document).ready(function()
-{
-   if ($.cookie('cookie_notice') == null) 
-   {
-      $('#cookie_policy').show();
-   } 
-   $('#cookie_button').click(function(e) 
-   {
-      e.preventDefault();
-      var timestamp = (new Date()).getTime();
-      $.cookie('cookie_notice', timestamp, { expires: new Date(timestamp + (31536000 * 1000)), path: '/'});
-      $('#cookie_policy').fadeOut("slow");
-   });
 });
 </script>
 </head>
@@ -157,20 +103,11 @@ $(document).ready(function()
 <ul id="headerMenu" role="menubar" class="nav">
 <li role="menuitem" class="nav-item firstmain"><a class="nav-link headerMenu-effect" href="./index.html#home" target="_self">Home</a>
 </li>
-<li role="menuitem" class="nav-item"><a class="nav-link headerMenu-effect" href="./Movies.html" target="_self" title="Movies"><svg class="headerMenu-icon" viewBox="0 0 60 60" version="1.1" xmlns="http://www.w3.org/2000/svg">
-   <path d="M60 12 L60 48 C60 49, 60 50, 59 50 C58 50, 58 50, 58 50 C57 50, 57 50, 56 50 L43 36 L43 42 C43 44, 42 47, 40 49 C38 50, 36 51, 33 51 L10 51 C7 51, 5 50, 3 49 C1 47, 0 44, 0 42 L0 18 C0 16, 1 13, 3 11 C5 10, 7 9, 10 9 L33 9 C36 9, 38 10, 40 11 C42 13, 43 16, 43 18 L43 24 L56 10 C57 10, 57 10, 58 10 C58 10, 58 10, 59 10 C60 10, 60 11, 60 12"/>
-</svg>
-Movies</a>
+<li role="menuitem" class="nav-item"><a class="nav-link headerMenu-effect" href="./Movies.html" target="_self" title="Movies">Movies</a>
 </li>
-<li role="menuitem" class="nav-item"><a class="nav-link headerMenu-effect" href="./TV-Shows.html" target="_self" title="TV Shows"><svg class="headerMenu-icon" viewBox="0 0 60 60" version="1.1" xmlns="http://www.w3.org/2000/svg">
-   <path d="M36 39 L46 21 L24 21 L14 39Z  M58 18 C59 22, 60 26, 60 30 C60 34, 59 38, 58 42 C56 45, 54 49, 51 51 C49 54, 45 56, 42 58 C38 59, 34 60, 30 60 C26 60, 22 59, 18 58 C15 56, 11 54, 9 51 C6 49, 4 45, 2 42 C1 38, 0 34, 0 30 C0 26, 1 22, 2 18 C4 15, 6 11, 9 9 C11 6, 15 4, 18 2 C22 1, 26 0, 30 0 C34 0, 38 1, 42 2 C45 4, 49 6, 51 9 C54 11, 56 15, 58 18"/>
-</svg>
-TV&nbsp;Shows</a>
+<li role="menuitem" class="nav-item"><a class="nav-link headerMenu-effect" href="./TV-Shows.html" target="_self" title="TV Shows">TV&nbsp;Shows</a>
 </li>
-<li role="menuitem" class="nav-item"><a class="nav-link headerMenu-effect" href="./Login.php" target="_self"><svg class="headerMenu-icon" viewBox="0 0 60 60" version="1.1" xmlns="http://www.w3.org/2000/svg">
-   <path d="M18 2 C22 1, 26 0, 30 0 C34 0, 38 1, 42 2 C45 4, 49 6, 51 9 C54 11, 56 15, 58 18 C59 22, 60 26, 60 30 C60 34, 59 38, 58 42 C56 45, 54 49, 51 51 C49 54, 45 56, 42 58 C38 59, 34 60, 30 60 C26 60, 22 59, 18 58 C15 56, 11 54, 9 51 C6 49, 4 45, 2 42 C1 38, 0 34, 0 30 C0 26, 1 22, 2 18 C4 15, 6 11, 9 9 C11 6, 15 4, 18 2 Z M51 45 C54 41, 56 36, 56 30 C56 27, 55 23, 54 20 C52 17, 50 14, 48 12 C46 10, 43 8, 40 6 C37 5, 33 4, 30 4 C27 4, 23 5, 20 6 C17 8, 14 10, 12 12 C10 14, 8 17, 6 20 C5 23, 4 27, 4 30 C4 36, 6 41, 9 45 C11 38, 14 34, 20 34 C22 37, 26 39, 30 39 C34 39, 38 37, 40 34 C46 34, 49 38, 51 45 Z M39 33 C42 30, 43 27, 43 24 C43 20, 42 17, 39 14 C37 12, 34 11, 30 11 C26 11, 23 12, 21 14 C18 17, 17 20, 17 24 C17 27, 18 30, 21 33 C23 35, 26 36, 30 36 C34 36, 37 35, 39 33"/>
-</svg>
-Login</a>
+<li role="menuitem" class="nav-item"><a class="nav-link headerMenu-effect" href="./Login.php" target="_self">Login</a>
 </li>
 </ul>
 
@@ -291,19 +228,21 @@ Login</a>
 </div>
 </div>
 </div>
-<div id="upStickyLayer" style="position:fixed;text-align:left;left:auto;right:25px;top:auto;bottom:25px;width:50px;height:50px;z-index:21;">
+<div id="upStickyLayer" style="position:fixed;text-align:left;left:auto;right:25px;top:auto;bottom:25px;width:50px;height:50px;z-index:20;">
 <div id="wb_upIcon" style="position:absolute;left:9px;top:8px;width:24px;height:24px;text-align:center;z-index:9;">
 <a href="./index.html#home"><div id="upIcon"><i class="fa fa-angle-up"></i></div></a></div>
 </div>
 <a href="https://www.wysiwygwebbuilder.com" target="_blank"><img src="images/builtwithwwb17.png" alt="WYSIWYG Web Builder" style="position:absolute;left:441px;top:3508px;margin: 0;border-width:0;z-index:250" width="16" height="16"></a>
-<div id="cookie_policy" style="position:fixed;text-align:center;left:0;right:0;bottom:0;height:164px;z-index:23;display: none;">
+<div id="cookie_policy" style="position:fixed;text-align:center;left:0;right:0;bottom:0;height:164px;z-index:22;display: none;">
 <div id="cookie_policy_Container" style="width:970px;position:relative;margin-left:auto;margin-right:auto;text-align:left;">
 <div id="wb_cookie_button" style="position:absolute;left:419px;top:112px;width:131px;height:31px;z-index:10;">
 <a href="./index.html"><div id="cookie_button"><div id="cookie_button_text"><div><span style="color:#FFFFFF;font-family:Verdana;font-size:13px;"><strong>I AGREE</strong></span></div></div></div></a></div>
 <div id="wb_cookie_message" style="position:absolute;left:210px;top:36px;width:550px;height:49px;text-align:center;z-index:11;">
 <span style="color:#FFFFFF;font-family:Verdana;font-size:13px;">This site uses cookies. By continuing to browse the site, you are agreeing to our use of cookies. <br><strong><u>More information about cookies</u></strong></span></div>
-
 </div>
 </div>
+<form name="SiteSearch1_form" id="SiteSearch1_form" role="search" accept-charset="UTF-8" onsubmit="return searchPage(features)">
+<input type="text" id="SiteSearch1" style="position:absolute;left:12px;top:20px;width:107px;height:16px;z-index:23;" name="SiteSearch1" value="" spellcheck="false" placeholder="Search this website" role="searchbox"></form>
+<input type="button" id="Button1" onclick="searchPage();return false;" name="Search" value="Search" style="position:absolute;left:133px;top:20px;width:96px;height:25px;z-index:24;">
 </body>
 </html>
