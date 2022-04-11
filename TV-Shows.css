@@ -310,12 +310,6 @@ input:focus, textarea:focus, select:focus
 {
    text-align: left;
 }
-#Banner1
-{
-   margin: 0;
-   -webkit-animation: animate-border-fade 1000ms linear 0ms infinite normal both;
-   animation: animate-border-fade 1000ms linear 0ms infinite normal both;
-}
 #wb_EditableContent1 
 {
    background-color: transparent;

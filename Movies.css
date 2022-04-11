@@ -443,13 +443,6 @@ input:focus, textarea:focus, select:focus
 {
    text-align: left;
 }
-#PageFooter2
-{
-   background-color: #F5F5F5;
-   background-image: none;
-   border-radius: 0px;
-   box-sizing: border-box;
-}
 #Banner1
 {
    margin: 0;
@@ -464,6 +457,13 @@ input:focus, textarea:focus, select:focus
    box-sizing: border-box;
 }
 #PageFooter1
+{
+   background-color: #F5F5F5;
+   background-image: none;
+   border-radius: 0px;
+   box-sizing: border-box;
+}
+#PageFooter2
 {
    background-color: #F5F5F5;
    background-image: none;
