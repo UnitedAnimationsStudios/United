@@ -1,18 +1,3 @@
-@-webkit-keyframes animate-background
-{
-   0% { background-color: #000000;  }
-   100% { background-color: #FFFFFF;  }
-}
-@-moz-keyframes animate-background
-{
-   0% { background-color: #000000;  }
-   100% { background-color: #FFFFFF;  }
-}
-@keyframes animate-background
-{
-   0% { background-color: #000000;  }
-   100% { background-color: #FFFFFF;  }
-}
 @-webkit-keyframes animate-border-fade
 {
    0% { box-shadow: inset 0 0 0 0px #e1e1e1, 0 0 1px transparent;  }
