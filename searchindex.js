@@ -22,6 +22,6 @@ function SearchDatabase()
    this[database_length++] = new SearchPage("Comic-Books.html", "Comic Books", "Copyright © 2022 United Animations  All Rights Reserved  Double click to edit   UNDER DEVELOPEMNT    ", "");
    this[database_length++] = new SearchPage("Our-Life.html", "Our Life", "Copyright © 2022 United Animations  All Rights Reserved  Double click to edit   UNDER DEVELOPEMNT    ", "");
    this[database_length++] = new SearchPage("Logout.html", "Logout", "Copyright © 2022 United Animations  All Rights Reserved  Double click to edit   UNDER DEVELOPEMNT    ", "");
-   this[database_length++] = new SearchPage("Legend-of-Awesomeness.html", "Legend of Awesomeness", "Copyright © 2022 United Animations  All Rights Reserved  Double click to edit   UNDER DEVELOPEMNT    ", "");
+   this[database_length++] = new SearchPage("Legend-of-Awesomeness.html", "Legend of Awesomeness", "Copyright © 2022 United Animations  All Rights Reserved  Double click to edit   ", "");
    return this;
 }
