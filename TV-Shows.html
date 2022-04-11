@@ -22,11 +22,22 @@ $(document).ready(function()
       event.preventDefault();
       $('html, body').stop().animate({ scrollTop: $('#wb_header').offset().top }, 600, 'easeOutCirc');
    });
+   $.getJSON('TV-Shows.json?v=' + new Date().getTime(), function(data)
+   {
+      $.each(data, function(key, value)
+      {
+         $('#wb_'+value.object).html(value.content);
+      });
+   })
+   .always(function()
+   {
+      $('.editable-content-hidden').removeClass('editable-content-hidden');
+   });
 });
 </script>
 </head>
 <body>
-<div id="StickyLayer" style="position:fixed;text-align:left;left:auto;right:25px;top:auto;bottom:25px;width:50px;height:50px;z-index:3;">
+<div id="StickyLayer" style="position:fixed;text-align:left;left:auto;right:25px;top:auto;bottom:25px;width:50px;height:50px;z-index:4;">
 <div id="wb_up-arrow" style="position:absolute;left:9px;top:8px;width:24px;height:24px;text-align:center;z-index:0;">
 <a href="./index.html#home"><div id="up-arrow"><i class="fa fa-angle-up"></i></div></a></div>
 </div>
@@ -34,7 +45,10 @@ $(document).ready(function()
 <div id="header">
 <div class="row">
 <div class="col-1">
-<div id="wb_headerMenu" style="display:inline-block;width:212px;height:48px;z-index:1;">
+<img src="images/img0004.png" id="Banner1" alt="TV Shows" style="border-width:0;display:inline-block;width:212px;height:50px;z-index:1;" width="212" height="50">
+</div>
+<div class="col-2">
+<div id="wb_headerMenu" style="display:inline-block;width:212px;height:48px;z-index:2;">
 <ul id="headerMenu" role="menubar" class="nav">
 <li role="menuitem" class="nav-item firstmain"><a class="nav-link headerMenu-effect" href="./index.html#home" target="_self"><svg class="headerMenu-icon" viewBox="0 0 60 60" version="1.1" xmlns="http://www.w3.org/2000/svg">
    <path d="M49 34 L49 50 C49 51, 49 51, 48 52 C48 52, 48 52, 47 52 L34 52 L34 40 L26 40 L26 52 L13 52 C12 52, 12 52, 11 52 C11 51, 11 51, 11 50 L11 34 C11 34, 11 34, 11 34 C11 34, 11 34, 11 34 L30 18 L49 34 C49 34, 49 34, 49 34 Z M57 32 L55 34 C54 35, 54 35, 54 35 L54 35 C53 35, 53 35, 53 35 L30 15 L7 35 C6 35, 6 35, 6 35 C6 35, 5 35, 5 34 L3 32 C3 32, 3 31, 3 31 C3 31, 3 31, 3 30 L27 10 C28 10, 29 9, 30 9 C31 9, 32 10, 32 10 L41 17 L41 11 C41 10, 41 10, 41 10 C41 10, 41 10, 42 10 L48 10 C48 10, 49 10, 49 10 C49 10, 49 10, 49 11 L49 24 L56 30 C57 31, 57 31, 57 31 C57 31, 57 32, 57 32"/>
@@ -50,16 +64,15 @@ Movies</a>
 
 </div>
 </div>
-<div class="col-2">
-</div>
 </div>
 </div>
 </div>
 <a href="https://www.wysiwygwebbuilder.com" target="_blank"><img src="images/builtwithwwb17.png" alt="WYSIWYG Web Builder" style="position:absolute;left:441px;top:3600px;margin: 0;border-width:0;z-index:250" width="16" height="16"></a>
-<div id="Html1" style="position:absolute;left:4px;top:127px;width:100px;height:100px;z-index:6">
-<iframe  width="560" height="315" </div>
 <div id="wb_Text1" style="position:absolute;left:4px;top:89px;width:250px;height:15px;z-index:7;">
 &nbsp;</div>
+<div id="wb_EditableContent1" style="position:absolute;left:4px;top:72px;width:100px;height:100px;z-index:8;" class="editable-content-hidden">
+<span style="color:#000000;font-family:Arial;font-size:13px;">Double click to edit</span></div>
+<a href="./Legend-of-Awesomeness.html" target="_blank"><img src="images/img0005.png" id="Banner2" alt="Kung Fu Panda Legend Of Awesomeness" style="border-width:0;position:absolute;left:4px;top:172px;width:549px;height:50px;z-index:9;" width="549" height="50"></a>
 <div id="wb_footer">
 <div id="footer">
 <div class="row">

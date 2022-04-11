@@ -1261,38 +1261,6 @@ input:focus, textarea:focus, select:focus
    color: inherit;
    text-decoration: none;
 }
-#SiteSearch1
-{
-   border: 1px solid #CCCCCC;
-   border-radius: 4px;
-   background-color: #FFFFFF;
-   background-image: none;
-   color: #000000;
-   font-family: Arial;
-   font-weight: normal;
-   font-style: normal;
-   font-size: 13px;
-   line-height: 16px;
-   padding: 4px 4px 4px 4px;
-   margin: 0;
-   text-align: left;
-}
-#Button1
-{
-   border: 1px solid #2E6DA4;
-   border-radius: 4px;
-   background-color: #3370B7;
-   background-image: none;
-   color: #FFFFFF;
-   font-family: Arial;
-   font-weight: normal;
-   font-style: normal;
-   font-size: 13px;
-   padding: 1px 6px 1px 6px;
-   text-align: center;
-   -webkit-appearance: none;
-   margin: 0;
-}
 #wb_footer
 {
    clear: both;

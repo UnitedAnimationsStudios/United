@@ -415,13 +415,6 @@ input:focus, textarea:focus, select:focus
 {
    text-align: left;
 }
-#PageFooter3
-{
-   background-color: #F5F5F5;
-   background-image: none;
-   border-radius: 0px;
-   box-sizing: border-box;
-}
 #wb_Text4 
 {
    background-color: transparent;
@@ -458,6 +451,19 @@ input:focus, textarea:focus, select:focus
    box-sizing: border-box;
 }
 #PageFooter2
+{
+   background-color: #F5F5F5;
+   background-image: none;
+   border-radius: 0px;
+   box-sizing: border-box;
+}
+#Banner1
+{
+   margin: 0;
+   -webkit-animation: animate-border-fade 1000ms linear 0ms infinite normal both;
+   animation: animate-border-fade 1000ms linear 0ms infinite normal both;
+}
+#PageFooter3
 {
    background-color: #F5F5F5;
    background-image: none;
