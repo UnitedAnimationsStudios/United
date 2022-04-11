@@ -1,0 +1,309 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Awesome</title>
+<meta name="generator" content="WYSIWYG Web Builder 17 Trial Version - https://www.wysiwygwebbuilder.com">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="favicon.ico.png" rel="icon" sizes="500x500" type="image/png">
+<link href="favicon.ico.png" rel="icon" sizes="500x500" type="image/png">
+<link href="favicon.ico.png" rel="icon" sizes="500x500" type="image/png">
+<link href="favicon.ico.png" rel="apple-touch-icon" sizes="500x500">
+<link href="font-awesome.min.css" rel="stylesheet">
+<link href="awesome.css" rel="stylesheet">
+<link href="index.css" rel="stylesheet">
+<script src="jquery-1.12.4.min.js"></script>
+<script src="jquery.ui.effect.min.js"></script>
+<script src="wwb17.min.js"></script>
+<script>
+$(document).ready(function()
+{
+   $('#reviewsImage1').addClass('visibility-hidden');
+   $('#portfolio-image2').addClass('visibility-hidden');
+   $('#reviewsImage1').addClass('visibility-hidden');
+   $('#portfolio-image2').addClass('visibility-hidden');
+   $("a[href*='#header']").click(function(event)
+   {
+      event.preventDefault();
+      $('html, body').stop().animate({ scrollTop: $('#wb_header').offset().top }, 600, 'easeOutCirc');
+   });
+   $("a[href*='#home']").click(function(event)
+   {
+      event.preventDefault();
+      $('html, body').stop().animate({ scrollTop: $('#wb_home').offset().top-88 }, 600, 'easeOutCirc');
+   });
+   $("a[href*='#team']").click(function(event)
+   {
+      event.preventDefault();
+      $('html, body').stop().animate({ scrollTop: $('#wb_team').offset().top-88 }, 600, 'easeOutCirc');
+   });
+   function onScrollteam()
+   {
+      var $obj = $("#wb_team");
+      if (!$obj.hasClass("in-viewport") && $obj.inViewPort(false))
+      {
+         $obj.addClass("in-viewport");
+         AnimateCss('reviewsImage1', 'animate-fade-in-up', 0, 1000);
+         AnimateCss('portfolio-image2', 'animate-fade-in-up', 500, 1000);
+      }
+   }
+   onScrollteam();
+   $(window).scroll(function(event)
+   {
+      onScrollteam();
+   });
+   $("a[href*='#contact']").click(function(event)
+   {
+      event.preventDefault();
+      $('html, body').stop().animate({ scrollTop: $('#wb_contact').offset().top-88 }, 600, 'easeOutCirc');
+   });
+   function onScrollcontact()
+   {
+      var $obj = $("#wb_contact");
+      if (!$obj.hasClass("in-viewport") && $obj.inViewPort(false))
+      {
+         $obj.addClass("in-viewport");
+         AnimateCss('reviewsImage1', 'animate-fade-in-up', 0, 1000);
+         AnimateCss('portfolio-image2', 'animate-fade-in-up', 500, 1000);
+      }
+   }
+   onScrollcontact();
+   $(window).scroll(function(event)
+   {
+      onScrollcontact();
+   });
+   var iOS = !!navigator.platform && /iPad|iPhone|iPod/.test(navigator.platform);
+   if (iOS)
+   {
+      $('#wb_home').css('background-attachment', 'scroll');
+   }
+});
+</script>
+<script>
+/*!
+* jQuery Cookie Plugin
+* https://github.com/carhartl/jquery-cookie
+*
+* Copyright 2011, Klaus Hartl
+* Dual licensed under the MIT or GPL Version 2 licenses.
+* http://www.opensource.org/licenses/mit-license.php
+* http://www.opensource.org/licenses/GPL-2.0
+*/
+(function($) {
+    $.cookie = function(key, value, options) 
+    {
+        if (arguments.length > 1 && (!/Object/.test(Object.prototype.toString.call(value)) || value === null || value === undefined)) 
+        {
+            options = $.extend({}, options);
+
+            if (value === null || value === undefined) 
+            {
+                options.expires = -1;
+            }
+
+            if (typeof options.expires === 'number') 
+            {
+                var days = options.expires, t = options.expires = new Date();
+                t.setDate(t.getDate() + days);
+            }
+
+            value = String(value);
+
+            return (document.cookie = 
+            [
+                encodeURIComponent(key), '=', options.raw ? value : encodeURIComponent(value),
+                options.expires ? '; expires=' + options.expires.toUTCString() : '', // use expires attribute, max-age is not supported by IE
+                options.path ? '; path=' + options.path : '',
+                options.domain ? '; domain=' + options.domain : '',
+                options.secure ? '; secure' : ''
+            ].join(''));
+        }
+        options = value || {};
+        var decode = options.raw ? function(s) { return s; } : decodeURIComponent;
+
+        var pairs = document.cookie.split('; ');
+        for (var i = 0, pair; pair = pairs[i] && pairs[i].split('='); i++) 
+        {
+            if (decode(pair[0]) === key) return decode(pair[1] || ''); // IE saves cookies with empty string as "c; ", e.g. without "=" as opposed to EOMB, thus pair[1] may be undefined
+        }
+        return null;
+    };
+})(jQuery);
+
+$(document).ready(function()
+{
+   if ($.cookie('cookie_notice') == null) 
+   {
+      $('#cookie_policy').show();
+   } 
+   $('#cookie_button').click(function(e) 
+   {
+      e.preventDefault();
+      var timestamp = (new Date()).getTime();
+      $.cookie('cookie_notice', timestamp, { expires: new Date(timestamp + (31536000 * 1000)), path: '/'});
+      $('#cookie_policy').fadeOut("slow");
+   });
+});
+</script>
+</head>
+<body>
+<div id="wb_header">
+<div id="header">
+<div class="row">
+<div class="col-1">
+</div>
+<div class="col-2">
+<div id="wb_headerMenu" style="display:inline-block;width:100%;z-index:0;">
+<ul id="headerMenu" role="menubar" class="nav">
+<li role="menuitem" class="nav-item firstmain"><a class="nav-link headerMenu-effect" href="./index.html#home" target="_self">Home</a>
+</li>
+<li role="menuitem" class="nav-item"><a class="nav-link headerMenu-effect" href="./Movies.html" target="_self" title="Movies"><svg class="headerMenu-icon" viewBox="0 0 60 60" version="1.1" xmlns="http://www.w3.org/2000/svg">
+   <path d="M60 12 L60 48 C60 49, 60 50, 59 50 C58 50, 58 50, 58 50 C57 50, 57 50, 56 50 L43 36 L43 42 C43 44, 42 47, 40 49 C38 50, 36 51, 33 51 L10 51 C7 51, 5 50, 3 49 C1 47, 0 44, 0 42 L0 18 C0 16, 1 13, 3 11 C5 10, 7 9, 10 9 L33 9 C36 9, 38 10, 40 11 C42 13, 43 16, 43 18 L43 24 L56 10 C57 10, 57 10, 58 10 C58 10, 58 10, 59 10 C60 10, 60 11, 60 12"/>
+</svg>
+Movies</a>
+</li>
+<li role="menuitem" class="nav-item"><a class="nav-link headerMenu-effect" href="./TV-Shows.html" target="_self" title="TV Shows"><svg class="headerMenu-icon" viewBox="0 0 60 60" version="1.1" xmlns="http://www.w3.org/2000/svg">
+   <path d="M36 39 L46 21 L24 21 L14 39Z  M58 18 C59 22, 60 26, 60 30 C60 34, 59 38, 58 42 C56 45, 54 49, 51 51 C49 54, 45 56, 42 58 C38 59, 34 60, 30 60 C26 60, 22 59, 18 58 C15 56, 11 54, 9 51 C6 49, 4 45, 2 42 C1 38, 0 34, 0 30 C0 26, 1 22, 2 18 C4 15, 6 11, 9 9 C11 6, 15 4, 18 2 C22 1, 26 0, 30 0 C34 0, 38 1, 42 2 C45 4, 49 6, 51 9 C54 11, 56 15, 58 18"/>
+</svg>
+TV&nbsp;Shows</a>
+</li>
+<li role="menuitem" class="nav-item"><a class="nav-link headerMenu-effect" href="./Login.php" target="_self"><svg class="headerMenu-icon" viewBox="0 0 60 60" version="1.1" xmlns="http://www.w3.org/2000/svg">
+   <path d="M18 2 C22 1, 26 0, 30 0 C34 0, 38 1, 42 2 C45 4, 49 6, 51 9 C54 11, 56 15, 58 18 C59 22, 60 26, 60 30 C60 34, 59 38, 58 42 C56 45, 54 49, 51 51 C49 54, 45 56, 42 58 C38 59, 34 60, 30 60 C26 60, 22 59, 18 58 C15 56, 11 54, 9 51 C6 49, 4 45, 2 42 C1 38, 0 34, 0 30 C0 26, 1 22, 2 18 C4 15, 6 11, 9 9 C11 6, 15 4, 18 2 Z M51 45 C54 41, 56 36, 56 30 C56 27, 55 23, 54 20 C52 17, 50 14, 48 12 C46 10, 43 8, 40 6 C37 5, 33 4, 30 4 C27 4, 23 5, 20 6 C17 8, 14 10, 12 12 C10 14, 8 17, 6 20 C5 23, 4 27, 4 30 C4 36, 6 41, 9 45 C11 38, 14 34, 20 34 C22 37, 26 39, 30 39 C34 39, 38 37, 40 34 C46 34, 49 38, 51 45 Z M39 33 C42 30, 43 27, 43 24 C43 20, 42 17, 39 14 C37 12, 34 11, 30 11 C26 11, 23 12, 21 14 C18 17, 17 20, 17 24 C17 27, 18 30, 21 33 C23 35, 26 36, 30 36 C34 36, 37 35, 39 33"/>
+</svg>
+Login</a>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="wb_home">
+<div id="home">
+<div class="col-1">
+</div>
+</div>
+</div>
+<div id="wb_CardContainer1">
+<div id="CardContainer1">
+<div id="wb_Card1" style="display:flex;text-align:center;z-index:1;" class="card">
+   <div id="Card1-card-body">
+      <div id="Card1-card-item0"><svg class="svg-icon" viewBox="0 0 212 212" version="1.1" xmlns="http://www.w3.org/2000/svg">
+   <path d="M112 195 C110 196, 108 197, 106 197 C104 197, 103 196, 101 195 L27 123 C26 123, 25 122, 24 120 C23 119, 20 116, 17 113 C14 109, 12 105, 9 101 C7 97, 5 92, 3 87 C1 81, 0 76, 0 70 C0 53, 5 40, 15 30 C25 20, 39 15, 57 15 C62 15, 67 16, 72 18 C77 19, 82 22, 86 25 C90 27, 94 30, 97 33 C100 35, 103 38, 106 41 C109 38, 112 35, 115 33 C118 30, 122 27, 127 25 C131 22, 136 19, 141 18 C146 16, 151 15, 156 15 C173 15, 187 20, 197 30 C207 40, 212 53, 212 70 C212 88, 203 106, 185 124"/>
+</svg>
+</div>
+      <div id="Card1-card-item1">Animation Scripts</div>
+      <hr id="Card1-card-item2">
+      <div id="Card1-card-item3">Come Check out the scripts we made</div>
+      <div id="Card1-card-item4"><a href="./Animation-Scripts.html">Read More</a></div>
+   </div>
+</div>
+<div id="wb_Card2" style="display:flex;text-align:center;z-index:2;" class="card">
+   <div id="Card2-card-body">
+      <div id="Card2-card-item0"><svg class="svg-icon" viewBox="0 0 212 212" version="1.1" xmlns="http://www.w3.org/2000/svg">
+   <path d="M197 107 C185 88, 170 74, 152 65 C157 73, 159 82, 159 91 C159 106, 154 118, 144 129 C133 139, 121 144, 106 144 C92 144, 79 139, 69 129 C58 118, 53 106, 53 91 C53 82, 56 73, 61 65 C42 74, 27 88, 15 107 C26 123, 39 136, 55 145 C71 155, 88 160, 106 160 C125 160, 142 155, 158 145 C174 136, 187 123, 197 107 Z M110 65 C111 64, 112 63, 112 61 C112 60, 111 58, 110 57 C109 56, 108 55, 106 55 C96 55, 88 59, 81 66 C74 73, 70 82, 70 91 C70 93, 71 94, 72 95 C73 97, 74 97, 76 97 C78 97, 79 97, 80 95 C81 94, 82 93, 82 91 C82 85, 84 79, 89 74 C94 69, 100 67, 106 67 C108 67, 109 66, 110 65 Z M210 98 C212 101, 212 104, 212 107 C212 109, 212 112, 210 115 C199 133, 184 147, 165 158 C147 169, 127 175, 106 175 C86 175, 66 169, 47 158 C29 147, 14 133, 3 115 C1 112, 0 109, 0 107 C0 104, 1 101, 3 98 C14 80, 29 66, 47 55 C66 44, 86 38, 106 38 C127 38, 147 44, 165 55 C184 66, 199 80, 210 98"/>
+</svg>
+</div>
+      <div id="Card2-card-item1">Comic Books</div>
+      <hr id="Card2-card-item2">
+      <div id="Card2-card-item3">Check out the Funny Scripts</div>
+      <div id="Card2-card-item4"><a href="./Comic-Books.html">Read More</a></div>
+   </div>
+</div>
+<div id="wb_Card3" style="display:flex;text-align:center;z-index:3;" class="card">
+   <div id="Card3-card-body">
+      <div id="Card3-card-item0"><svg class="svg-icon" viewBox="0 0 212 212" version="1.1" xmlns="http://www.w3.org/2000/svg">
+   <path d="M113 173 C115 171, 116 169, 116 167 C116 164, 115 162, 113 160 C112 158, 109 157, 107 157 C104 157, 102 158, 100 160 C98 162, 97 164, 97 167 C97 169, 98 171, 100 173 C102 175, 104 176, 107 176 C109 176, 112 175, 113 173 Z M141 148 L141 64 C141 63, 140 62, 140 62 C139 61, 138 61, 137 61 L76 61 C75 61, 75 61, 74 62 C73 62, 73 63, 73 64 L73 148 C73 149, 73 150, 74 150 C75 151, 75 151, 76 151 L137 151 C138 151, 139 151, 140 150 C140 150, 141 149, 141 148 Z M116 49 C117 49, 118 49, 118 47 C118 46, 117 45, 116 45 L97 45 C96 45, 95 46, 95 47 C95 49, 96 49, 97 49 Z M152 45 L152 167 C152 171, 151 174, 148 177 C145 180, 141 182, 137 182 L76 182 C72 182, 69 180, 66 177 C63 174, 61 171, 61 167 L61 45 C61 41, 63 38, 66 35 C69 32, 72 30, 76 30 L137 30 C141 30, 145 32, 148 35 C151 38, 152 41, 152 45"/>
+</svg>
+</div>
+      <div id="Card3-card-item1">Our Life as Animators</div>
+      <hr id="Card3-card-item2">
+      <div id="Card3-card-item3">As Animators and Humans we have lots of stories to tell</div>
+      <div id="Card3-card-item4"><a href="./Our-Life.html">Read More</a></div>
+   </div>
+</div>
+</div>
+</div>
+<div id="wb_WrapTextLayoutGrid">
+<div id="WrapTextLayoutGrid">
+<div class="row">
+<div class="col-1">
+<div class="col-1-padding">
+</div>
+</div>
+<div class="col-2">
+<div class="col-2-padding">
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="wb_team">
+<div id="team">
+<div class="row">
+<div class="col-1">
+<div class="col-1-padding">
+<div id="wb_teamHeading" style="display:inline-block;width:100%;z-index:4;">
+<h1 id="teamHeading">United Animation's Founder</h1>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="wb_CardContainer2">
+<div id="CardContainer2">
+<div id="wb_teamCard3" style="display:flex;text-align:center;z-index:5;" class="card">
+   <div id="teamCard3-card-body">
+      <img id="teamCard3-card-item0" src="images/try 2.gif" width="1280" height="720" alt="" title="">
+      <div id="teamCard3-card-item1">Shaquille Brown</div>
+      <hr id="teamCard3-card-item2">
+      <div id="teamCard3-card-item3">Founder</div>
+   </div>
+</div>
+</div>
+</div>
+<div id="wb_contact">
+<div id="contact">
+<div class="row">
+<div class="col-1">
+<div class="col-1-padding">
+<div id="wb_contactHeading" style="display:inline-block;width:100%;z-index:6;">
+<h1 id="contactHeading">Give Awesome Feedback</h1>
+</div>
+<div id="wb_contactText">
+<p>Let us Know what you think</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="wb_footer">
+<div id="footer">
+<div class="row">
+<div class="col-1">
+<div id="wb_footerText">
+<p>Copyright © 2022 United Animations.&nbsp; All Rights Reserved</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="upStickyLayer" style="position:fixed;text-align:left;left:auto;right:25px;top:auto;bottom:25px;width:50px;height:50px;z-index:21;">
+<div id="wb_upIcon" style="position:absolute;left:9px;top:8px;width:24px;height:24px;text-align:center;z-index:9;">
+<a href="./index.html#home"><div id="upIcon"><i class="fa fa-angle-up"></i></div></a></div>
+</div>
+<a href="https://www.wysiwygwebbuilder.com" target="_blank"><img src="images/builtwithwwb17.png" alt="WYSIWYG Web Builder" style="position:absolute;left:441px;top:3508px;margin: 0;border-width:0;z-index:250" width="16" height="16"></a>
+<div id="cookie_policy" style="position:fixed;text-align:center;left:0;right:0;bottom:0;height:164px;z-index:23;display: none;">
+<div id="cookie_policy_Container" style="width:970px;position:relative;margin-left:auto;margin-right:auto;text-align:left;">
+<div id="wb_cookie_button" style="position:absolute;left:419px;top:112px;width:131px;height:31px;z-index:10;">
+<a href="./index.html"><div id="cookie_button"><div id="cookie_button_text"><div><span style="color:#FFFFFF;font-family:Verdana;font-size:13px;"><strong>I AGREE</strong></span></div></div></div></a></div>
+<div id="wb_cookie_message" style="position:absolute;left:210px;top:36px;width:550px;height:49px;text-align:center;z-index:11;">
+<span style="color:#FFFFFF;font-family:Verdana;font-size:13px;">This site uses cookies. By continuing to browse the site, you are agreeing to our use of cookies. <br><strong><u>More information about cookies</u></strong></span></div>
+
+</div>
+</div>
+</body>
+</html>
