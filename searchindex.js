@@ -13,7 +13,7 @@ function SearchPage(url, title, keywords, description)
 function SearchDatabase()
 {
    database_length = 0;
-   this[database_length++] = new SearchPage("index.html", "United Animations", "Copyright © 2022 United Animations  All Rights Reserved  Let us Know what you think   ", "");
+   this[database_length++] = new SearchPage("index.html", "United Animations", "Copyright © 2022 United Animations  All Rights Reserved  Let us Know what you think  DAYS  HOURS  MINUTES  SECONDS   ", "");
    this[database_length++] = new SearchPage("index_with_breakpoint.html", "Awesome", "Awesome Lorem ipsum dolor sit amet, consectetur adipiscing elit Integer nec odio Praesent libero Sed cursus ante dapibus diam Sed nisi Nulla quis sem at nibh  Copyright © 2019 WYSIWYG Web Builder  All Rights Reserved  Lorem ipsum dolor sit amet, consectetur adipiscing elit Nulla quis sem at nibh elementum imperdiet Duis sagittis ipsum Praesent mauris Fusce nec tellus sed augue semper porta Mauris massa Vestibulum lacinia arcu eget nulla   ", "");
    this[database_length++] = new SearchPage("Movies.html", "Movies", "Copyright © 2022 United ANimations  All Rights Reserved  TURNING RED 2022  NO WAY HOME  DRAGONS HOMECOMING  GIFT OF NIGHT FURY  THE G.B.AND UGLY   ", "");
    this[database_length++] = new SearchPage("TV-Shows.html", "TV Shows", "Copyright © 2022 United Animations  All Rights Reserved   ", "");

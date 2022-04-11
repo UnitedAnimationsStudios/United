@@ -80,6 +80,32 @@ $(document).ready(function()
    }
 });
 </script>
+<script>
+$(document).ready(function()
+{
+   function waitForItUpdate()
+   {
+      // change the date here
+      var dateFuture = new Date("August 19, 2022 12:00:00");
+      var dateNow = new Date();
+      var seconds = Math.floor((dateFuture - (dateNow))/1000);
+      var minutes = Math.floor(seconds/60);
+      var hours = Math.floor(minutes/60);
+      var days = Math.floor(hours/24);
+
+      hours = Math.round(hours-(days*24));
+      minutes = Math.round(minutes-(days*24*60)-(hours*60));
+      seconds = Math.round(seconds-(days*24*60*60)-(hours*60*60)-(minutes*60));
+                                 
+      $('#waitForItDays').html(days);
+      $('#waitForItHours').html(hours);
+      $('#waitForItMinutes').html(minutes);
+      $('#waitForItSeconds').html(seconds);   
+   }
+   waitForItUpdate();
+   setInterval(waitForItUpdate, 1000);
+});
+</script>
 </head>
 <body>
 <div id="wb_header">
@@ -206,28 +232,271 @@ $(document).ready(function()
 </div>
 </div>
 </div>
-<div id="upStickyLayer" style="position:fixed;text-align:left;left:auto;right:25px;top:auto;bottom:25px;width:50px;height:50px;z-index:17;">
+<div id="upStickyLayer" style="position:fixed;text-align:left;left:auto;right:25px;top:auto;bottom:25px;width:50px;height:50px;z-index:97;">
 <div id="wb_upIcon" style="position:absolute;left:9px;top:8px;width:24px;height:24px;text-align:center;z-index:8;">
 <a href="./index.html#home"><div id="upIcon"><i class="fa fa-angle-up"></i></div></a></div>
 </div>
 <a href="https://www.wysiwygwebbuilder.com" target="_blank"><img src="images/builtwithwwb17.png" alt="WYSIWYG Web Builder" style="position:absolute;left:441px;top:3508px;margin: 0;border-width:0;z-index:250" width="16" height="16"></a>
-<script>
-var wb_Timer1;
-function TimerStartTimer1()
-{
-   wb_Timer1 = setInterval(function()
-   {
-      var event = null;
-      document.getElementById('Timer1').disabled=false;
-   }, 1000);
-}
-function TimerStopTimer1()
-{
-   clearInterval(wb_Timer1);
-}
-TimerStartTimer1();
-</script>
+<div id="wb_waitForItTitle">
+<div id="waitForItTitle">
+<div class="row">
+<div class="col-1">
+<div id="wb_waitForItHeading1" style="display:inline-block;width:100%;z-index:9;">
+<h1 id="waitForItHeading1">Wait for it...</h1>
+</div>
+<div id="wb_waitForItHeading2" style="display:inline-block;width:100%;z-index:10;">
+<h2 id="waitForItHeading2">Our new website will be finished</h2>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="wb_waitForIt">
+<div id="waitForIt">
+<div class="row">
+<div class="col-1">
+</div>
+<div class="col-2">
+<div id="wb_waitForItDays" style="display:inline-block;width:100%;z-index:11;">
+<h2 id="waitForItDays">0</h2>
+</div>
+<div id="wb_waitForItText1">
+<span style="color:#FFFFFF;font-family:Arial;font-size:16px;"><strong>DAYS</strong></span>
+</div>
+</div>
+<div class="col-3">
+<div id="wb_waitForItHours" style="display:inline-block;width:100%;z-index:13;">
+<h2 id="waitForItHours">0</h2>
+</div>
+<div id="wb_waitForItText2">
+<span style="color:#FFFFFF;font-family:Arial;font-size:16px;"><strong>HOURS</strong></span>
+</div>
+</div>
+<div class="col-4">
+<div id="wb_waitForItMinutes" style="display:inline-block;width:100%;z-index:15;">
+<h2 id="waitForItMinutes">0</h2>
+</div>
+<div id="wb_waitForItText3">
+<span style="color:#FFFFFF;font-family:Arial;font-size:16px;"><strong>MINUTES</strong></span>
+</div>
+</div>
+<div class="col-5">
+<div id="wb_waitForItSeconds" style="display:inline-block;width:100%;z-index:17;">
+<h2 id="waitForItSeconds">0</h2>
+</div>
+<div id="wb_waitForItText4">
+<span style="color:#FFFFFF;font-family:Arial;font-size:16px;"><strong>SECONDS</strong></span>
+</div>
+</div>
+<div class="col-6">
 
+</div>
+</div>
+</div>
+</div>
+<div id="wb_LayoutGrid1">
+<form name="contact" method="post" action="./Login.html" enctype="multipart/form-data" id="LayoutGrid1">
+<div class="row">
+<div class="col-1">
+<div id="wb_LayoutGrid2">
+<div id="LayoutGrid2">
+<div class="row">
+<div class="col-1">
+<label for="Editbox1" id="Label1" style="display:block;width:100%;line-height:16px;z-index:20;">Name:</label>
+</div>
+<div class="col-2">
+<input type="text" id="Editbox1" style="display:block;width: 100%;height:25px;z-index:21;" name="name" value="" spellcheck="false">
+</div>
+</div>
+</div>
+</div>
+<div id="wb_LayoutGrid3">
+<div id="LayoutGrid3">
+<div class="row">
+<div class="col-1">
+<label for="Editbox2" id="Label2" style="display:block;width:100%;line-height:16px;z-index:22;">Email:</label>
+</div>
+<div class="col-2">
+<input type="text" id="Editbox2" style="display:block;width: 100%;height:25px;z-index:23;" name="email" value="" spellcheck="false">
+</div>
+</div>
+</div>
+</div>
+<div id="wb_LayoutGrid4">
+<div id="LayoutGrid4">
+<div class="row">
+<div class="col-1">
+<label for="" id="Label3" style="display:block;width:100%;line-height:16px;z-index:24;">How did you find us?</label>
+</div>
+<div class="col-2">
+</div>
+</div>
+</div>
+</div>
+<div id="wb_LayoutGrid5">
+<div id="LayoutGrid5">
+<div class="row">
+<div class="col-1">
+<label for="RadioButton1" id="Label4" style="display:block;width:100%;line-height:16px;z-index:25;">Search Engine</label>
+</div>
+<div class="col-2">
+<div id="wb_RadioButton1" style="display:inline-block;width:20px;height:20px;z-index:26;">
+<input type="radio" id="RadioButton1" name="q[1]" value="Search Engine" checked style="display:inline-block;"><label for="RadioButton1"></label>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="wb_LayoutGrid6">
+<div id="LayoutGrid6">
+<div class="row">
+<div class="col-1">
+<label for="RadioButton2" id="Label5" style="display:block;width:100%;line-height:16px;z-index:27;">Link From Another Site</label>
+</div>
+<div class="col-2">
+<div id="wb_RadioButton2" style="display:inline-block;width:20px;height:20px;z-index:28;">
+<input type="radio" id="RadioButton2" name="q[1]" value="Link From Another Site" style="display:inline-block;"><label for="RadioButton2"></label>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="wb_LayoutGrid7">
+<div id="LayoutGrid7">
+<div class="row">
+<div class="col-1">
+<label for="RadioButton3" id="Label6" style="display:block;width:100%;line-height:16px;z-index:29;">News Article</label>
+</div>
+<div class="col-2">
+<div id="wb_RadioButton3" style="display:inline-block;width:20px;height:20px;z-index:30;">
+<input type="radio" id="RadioButton3" name="q[1]" value="News Article" style="display:inline-block;"><label for="RadioButton3"></label>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="wb_LayoutGrid8">
+<div id="LayoutGrid8">
+<div class="row">
+<div class="col-1">
+<label for="RadioButton4" id="Label7" style="display:block;width:100%;line-height:16px;z-index:31;">Television Ad</label>
+</div>
+<div class="col-2">
+<div id="wb_RadioButton4" style="display:inline-block;width:20px;height:20px;z-index:32;">
+<input type="radio" id="RadioButton4" name="q[1]" value="Television Ad" style="display:inline-block;"><label for="RadioButton4"></label>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="wb_LayoutGrid9">
+<div id="LayoutGrid9">
+<div class="row">
+<div class="col-1">
+<label for="RadioButton5" id="Label8" style="display:block;width:100%;line-height:16px;z-index:33;">Word of Mouth</label>
+</div>
+<div class="col-2">
+<div id="wb_RadioButton5" style="display:inline-block;width:20px;height:20px;z-index:34;">
+<input type="radio" id="RadioButton5" name="q[1]" value="Word of Mouth" style="display:inline-block;"><label for="RadioButton5"></label>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="wb_LayoutGrid10">
+<div id="LayoutGrid10">
+<div class="row">
+<div class="col-1">
+<label for="" id="Label9" style="display:block;width:100%;line-height:16px;z-index:35;">How often do you visit our site?</label>
+</div>
+<div class="col-2">
+</div>
+</div>
+</div>
+</div>
+<div id="wb_LayoutGrid11">
+<div id="LayoutGrid11">
+<div class="row">
+<div class="col-1">
+<label for="RadioButton6" id="Label10" style="display:block;width:100%;line-height:16px;z-index:36;">Daily</label>
+</div>
+<div class="col-2">
+<div id="wb_RadioButton6" style="display:inline-block;width:20px;height:20px;z-index:37;">
+<input type="radio" id="RadioButton6" name="q[2]" value="Daily" checked style="display:inline-block;"><label for="RadioButton6"></label>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="wb_LayoutGrid12">
+<div id="LayoutGrid12">
+<div class="row">
+<div class="col-1">
+<label for="RadioButton7" id="Label11" style="display:block;width:100%;line-height:16px;z-index:38;">Weekly</label>
+</div>
+<div class="col-2">
+<div id="wb_RadioButton7" style="display:inline-block;width:20px;height:20px;z-index:39;">
+<input type="radio" id="RadioButton7" name="q[2]" value="Weekly" style="display:inline-block;"><label for="RadioButton7"></label>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="wb_LayoutGrid13">
+<div id="LayoutGrid13">
+<div class="row">
+<div class="col-1">
+<label for="RadioButton8" id="Label12" style="display:block;width:100%;line-height:16px;z-index:40;">Monthly</label>
+</div>
+<div class="col-2">
+<div id="wb_RadioButton8" style="display:inline-block;width:20px;height:20px;z-index:41;">
+<input type="radio" id="RadioButton8" name="q[2]" value="Monthly" style="display:inline-block;"><label for="RadioButton8"></label>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="wb_LayoutGrid14">
+<div id="LayoutGrid14">
+<div class="row">
+<div class="col-1">
+<label for="RadioButton9" id="Label13" style="display:block;width:100%;line-height:16px;z-index:42;">Yearly</label>
+</div>
+<div class="col-2">
+<div id="wb_RadioButton9" style="display:inline-block;width:20px;height:20px;z-index:43;">
+<input type="radio" id="RadioButton9" name="q[2]" value="Yearly" style="display:inline-block;"><label for="RadioButton9"></label>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="wb_LayoutGrid15">
+<div id="LayoutGrid15">
+<div class="row">
+<div class="col-1">
+<label for="TextArea1" id="Label14" style="display:block;width:100%;line-height:16px;z-index:44;">Message:</label>
+</div>
+<div class="col-2">
+<textarea name="comments" id="TextArea1" style="display:block;width: 100%;;height:100px;z-index:45;" rows="5" cols="81" spellcheck="false"></textarea>
+</div>
+</div>
+</div>
+</div>
+<div id="wb_LayoutGrid16">
+<div id="LayoutGrid16">
+<div class="row">
+<div class="col-1">
+</div>
+<div class="col-2">
+<input type="submit" id="Button1" name="" value="Send" style="display:inline-block;width:96px;height:25px;z-index:46;">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</form>
+</div>
 <div id="wb_footer">
 <div id="footer">
 <div class="row">
