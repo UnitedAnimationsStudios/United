@@ -449,13 +449,6 @@ input:focus, textarea:focus, select:focus
    -webkit-animation: animate-border-fade 1000ms linear 0ms infinite normal both;
    animation: animate-border-fade 1000ms linear 0ms infinite normal both;
 }
-#PageFooter1
-{
-   background-color: #F5F5F5;
-   background-image: none;
-   border-radius: 0px;
-   box-sizing: border-box;
-}
 #PageFooter2
 {
    background-color: #F5F5F5;
@@ -464,6 +457,13 @@ input:focus, textarea:focus, select:focus
    box-sizing: border-box;
 }
 #PageFooter3
+{
+   background-color: #F5F5F5;
+   background-image: none;
+   border-radius: 0px;
+   box-sizing: border-box;
+}
+#PageFooter1
 {
    background-color: #F5F5F5;
    background-image: none;
