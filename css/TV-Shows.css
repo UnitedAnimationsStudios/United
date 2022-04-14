@@ -228,12 +228,12 @@ input:focus, textarea:focus, select:focus
 }
 #wb_headerMenu li:hover a, #wb_headerMenu a:hover
 {
-   color: #087EEA;
+   color: #FF0000;
 }
 .headerMenu-effect:before
 {
-   border: 1px solid #087EEA;
-   background-color: #087EEA;
+   border: 1px solid #FF0000;
+   background-color: #FF0000;
    background-image: none;
 }
 #wb_headerMenu li.firstmain
@@ -292,7 +292,7 @@ input:focus, textarea:focus, select:focus
 }
 #headerMenu a:hover .headerMenu-icon
 {
-   fill: #087EEA;
+   fill: #FF0000;
 }
 #headerMenu > .active .headerMenu-icon
 {

@@ -1,3 +1,18 @@
+@-webkit-keyframes animate-border
+{
+   0% { border-color: #000000;  }
+   100% { border-color: #FF0000;  }
+}
+@-moz-keyframes animate-border
+{
+   0% { border-color: #000000;  }
+   100% { border-color: #FF0000;  }
+}
+@keyframes animate-border
+{
+   0% { border-color: #000000;  }
+   100% { border-color: #FF0000;  }
+}
 @-webkit-keyframes animate-box-shadow
 {
    0% { box-shadow: 0px 0px 5px #FF0000;  }
