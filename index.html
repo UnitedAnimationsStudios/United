@@ -23,6 +23,7 @@ $(document).ready(function()
    $('#portfolio-image2').addClass('visibility-hidden');
    $('#reviewsImage1').addClass('visibility-hidden');
    $('#portfolio-image2').addClass('visibility-hidden');
+   $('#wb_headerMenu').addClass('visibility-hidden');
    $("a[href*='#header']").click(function(event)
    {
       event.preventDefault();
@@ -73,6 +74,30 @@ $(document).ready(function()
    {
       onScrollcontact();
    });
+   function onScrollheaderMenu()
+   {
+      var $obj = $("#wb_headerMenu");
+      if (!$obj.hasClass("in-viewport") && $obj.inViewPort(true))
+      {
+         $obj.addClass("in-viewport");
+         AnimateCss('wb_headerMenu', 'animate-flash', 0, 1250);
+      }
+      else
+      if ($obj.hasClass("in-viewport") && !$obj.inViewPort(true))
+      {
+         $obj.removeClass("in-viewport");
+         AnimateCss('wb_headerMenu', 'animate-fade-out', 0, 0);
+      }
+   }
+   if (!$('#wb_headerMenu').inViewPort(true))
+   {
+      $('#wb_headerMenu').addClass("in-viewport");
+   }
+   onScrollheaderMenu();
+   $(window).scroll(function(event)
+   {
+      onScrollheaderMenu();
+   });
    var iOS = !!navigator.platform && /iPad|iPhone|iPod/.test(navigator.platform);
    if (iOS)
    {
@@ -112,9 +137,16 @@ $(document).ready(function()
 <div id="header">
 <div class="row">
 <div class="col-1">
+<div id="wb_MediaPlayer1" style="display:inline-block;width:100%;z-index:0;">
+<audio id="MediaPlayer1" autoplay controls loop preload="auto" oncanplay="document.getElementById('MediaPlayer1').disabled=false;return false;">
+<source src="Medieval_Inn_Music_and_Fantasy_Inn_Music(128k).m4a">
+<source src="Medieval_Inn_Music_and_Fantasy_Inn_Music(128k).m4a">
+</audio>
+
+</div>
 </div>
 <div class="col-2">
-<div id="wb_headerMenu" style="display:inline-block;width:100%;z-index:0;">
+<div id="wb_headerMenu" style="display:inline-block;width:100%;z-index:1;">
 <ul id="headerMenu" role="menubar" class="nav">
 <li role="menuitem" class="nav-item firstmain"><a class="nav-link headerMenu-effect" href="./index.html#home" target="_self">Home</a>
 </li>
@@ -139,7 +171,7 @@ $(document).ready(function()
 </div>
 <div id="wb_CardContainer1">
 <div id="CardContainer1">
-<div id="wb_Card1" style="display:flex;text-align:center;z-index:1;" class="card">
+<div id="wb_Card1" style="display:flex;text-align:center;z-index:2;" class="card">
    <div id="Card1-card-body">
       <div id="Card1-card-item0"><svg class="svg-icon" viewBox="0 0 212 212" version="1.1" xmlns="http://www.w3.org/2000/svg">
    <path d="M112 195 C110 196, 108 197, 106 197 C104 197, 103 196, 101 195 L27 123 C26 123, 25 122, 24 120 C23 119, 20 116, 17 113 C14 109, 12 105, 9 101 C7 97, 5 92, 3 87 C1 81, 0 76, 0 70 C0 53, 5 40, 15 30 C25 20, 39 15, 57 15 C62 15, 67 16, 72 18 C77 19, 82 22, 86 25 C90 27, 94 30, 97 33 C100 35, 103 38, 106 41 C109 38, 112 35, 115 33 C118 30, 122 27, 127 25 C131 22, 136 19, 141 18 C146 16, 151 15, 156 15 C173 15, 187 20, 197 30 C207 40, 212 53, 212 70 C212 88, 203 106, 185 124"/>
@@ -151,7 +183,7 @@ $(document).ready(function()
       <div id="Card1-card-item4"><a href="./Animation-Scripts.html">Read More</a></div>
    </div>
 </div>
-<div id="wb_Card2" style="display:flex;text-align:center;z-index:2;" class="card">
+<div id="wb_Card2" style="display:flex;text-align:center;z-index:3;" class="card">
    <div id="Card2-card-body">
       <div id="Card2-card-item0"><svg class="svg-icon" viewBox="0 0 212 212" version="1.1" xmlns="http://www.w3.org/2000/svg">
    <path d="M197 107 C185 88, 170 74, 152 65 C157 73, 159 82, 159 91 C159 106, 154 118, 144 129 C133 139, 121 144, 106 144 C92 144, 79 139, 69 129 C58 118, 53 106, 53 91 C53 82, 56 73, 61 65 C42 74, 27 88, 15 107 C26 123, 39 136, 55 145 C71 155, 88 160, 106 160 C125 160, 142 155, 158 145 C174 136, 187 123, 197 107 Z M110 65 C111 64, 112 63, 112 61 C112 60, 111 58, 110 57 C109 56, 108 55, 106 55 C96 55, 88 59, 81 66 C74 73, 70 82, 70 91 C70 93, 71 94, 72 95 C73 97, 74 97, 76 97 C78 97, 79 97, 80 95 C81 94, 82 93, 82 91 C82 85, 84 79, 89 74 C94 69, 100 67, 106 67 C108 67, 109 66, 110 65 Z M210 98 C212 101, 212 104, 212 107 C212 109, 212 112, 210 115 C199 133, 184 147, 165 158 C147 169, 127 175, 106 175 C86 175, 66 169, 47 158 C29 147, 14 133, 3 115 C1 112, 0 109, 0 107 C0 104, 1 101, 3 98 C14 80, 29 66, 47 55 C66 44, 86 38, 106 38 C127 38, 147 44, 165 55 C184 66, 199 80, 210 98"/>
@@ -163,7 +195,7 @@ $(document).ready(function()
       <div id="Card2-card-item4"><a href="./Comic-Books.html">Read More</a></div>
    </div>
 </div>
-<div id="wb_Card3" style="display:flex;text-align:center;z-index:3;" class="card">
+<div id="wb_Card3" style="display:flex;text-align:center;z-index:4;" class="card">
    <div id="Card3-card-body">
       <div id="Card3-card-item0"><svg class="svg-icon" viewBox="0 0 212 212" version="1.1" xmlns="http://www.w3.org/2000/svg">
    <path d="M113 173 C115 171, 116 169, 116 167 C116 164, 115 162, 113 160 C112 158, 109 157, 107 157 C104 157, 102 158, 100 160 C98 162, 97 164, 97 167 C97 169, 98 171, 100 173 C102 175, 104 176, 107 176 C109 176, 112 175, 113 173 Z M141 148 L141 64 C141 63, 140 62, 140 62 C139 61, 138 61, 137 61 L76 61 C75 61, 75 61, 74 62 C73 62, 73 63, 73 64 L73 148 C73 149, 73 150, 74 150 C75 151, 75 151, 76 151 L137 151 C138 151, 139 151, 140 150 C140 150, 141 149, 141 148 Z M116 49 C117 49, 118 49, 118 47 C118 46, 117 45, 116 45 L97 45 C96 45, 95 46, 95 47 C95 49, 96 49, 97 49 Z M152 45 L152 167 C152 171, 151 174, 148 177 C145 180, 141 182, 137 182 L76 182 C72 182, 69 180, 66 177 C63 174, 61 171, 61 167 L61 45 C61 41, 63 38, 66 35 C69 32, 72 30, 76 30 L137 30 C141 30, 145 32, 148 35 C151 38, 152 41, 152 45"/>
@@ -196,7 +228,7 @@ $(document).ready(function()
 <div class="row">
 <div class="col-1">
 <div class="col-1-padding">
-<div id="wb_teamHeading" style="display:inline-block;width:100%;z-index:4;">
+<div id="wb_teamHeading" style="display:inline-block;width:100%;z-index:5;">
 <h1 id="teamHeading">United Animation's Founder</h1>
 </div>
 </div>
@@ -206,7 +238,7 @@ $(document).ready(function()
 </div>
 <div id="wb_CardContainer2">
 <div id="CardContainer2">
-<div id="wb_teamCard3" style="display:flex;text-align:center;z-index:5;" class="card">
+<div id="wb_teamCard3" style="display:flex;text-align:center;z-index:6;" class="card">
    <div id="teamCard3-card-body">
       <img id="teamCard3-card-item0" src="images/try 2.gif" width="1280" height="720" alt="" title="">
       <div id="teamCard3-card-item1">Shaquille Brown</div>
@@ -221,7 +253,7 @@ $(document).ready(function()
 <div class="row">
 <div class="col-1">
 <div class="col-1-padding">
-<div id="wb_contactHeading" style="display:inline-block;width:100%;z-index:6;">
+<div id="wb_contactHeading" style="display:inline-block;width:100%;z-index:7;">
 <h1 id="contactHeading">Give Awesome Feedback</h1>
 </div>
 <div id="wb_contactText">
@@ -232,8 +264,8 @@ $(document).ready(function()
 </div>
 </div>
 </div>
-<div id="upStickyLayer" style="position:fixed;text-align:left;left:auto;right:25px;top:auto;bottom:25px;width:50px;height:50px;z-index:28;">
-<div id="wb_upIcon" style="position:absolute;left:9px;top:8px;width:24px;height:24px;text-align:center;z-index:8;">
+<div id="upStickyLayer" style="position:fixed;text-align:left;left:auto;right:25px;top:auto;bottom:25px;width:50px;height:50px;z-index:29;">
+<div id="wb_upIcon" style="position:absolute;left:9px;top:8px;width:24px;height:24px;text-align:center;z-index:9;">
 <a href="./index.html#home"><div id="upIcon"><i class="fa fa-angle-up"></i></div></a></div>
 </div>
 <a href="https://www.wysiwygwebbuilder.com" target="_blank"><img src="images/builtwithwwb17.png" alt="WYSIWYG Web Builder" style="position:absolute;left:441px;top:3508px;margin: 0;border-width:0;z-index:250" width="16" height="16"></a>
@@ -241,10 +273,10 @@ $(document).ready(function()
 <div id="waitForItTitle">
 <div class="row">
 <div class="col-1">
-<div id="wb_waitForItHeading1" style="display:inline-block;width:100%;z-index:9;">
+<div id="wb_waitForItHeading1" style="display:inline-block;width:100%;z-index:10;">
 <h1 id="waitForItHeading1">Wait for it...</h1>
 </div>
-<div id="wb_waitForItHeading2" style="display:inline-block;width:100%;z-index:10;">
+<div id="wb_waitForItHeading2" style="display:inline-block;width:100%;z-index:11;">
 <h2 id="waitForItHeading2">Our new website will be finished</h2>
 </div>
 </div>
@@ -257,7 +289,7 @@ $(document).ready(function()
 <div class="col-1">
 </div>
 <div class="col-2">
-<div id="wb_waitForItDays" style="display:inline-block;width:100%;z-index:11;">
+<div id="wb_waitForItDays" style="display:inline-block;width:100%;z-index:12;">
 <h2 id="waitForItDays">0</h2>
 </div>
 <div id="wb_waitForItText1">
@@ -265,7 +297,7 @@ $(document).ready(function()
 </div>
 </div>
 <div class="col-3">
-<div id="wb_waitForItHours" style="display:inline-block;width:100%;z-index:13;">
+<div id="wb_waitForItHours" style="display:inline-block;width:100%;z-index:14;">
 <h2 id="waitForItHours">0</h2>
 </div>
 <div id="wb_waitForItText2">
@@ -273,7 +305,7 @@ $(document).ready(function()
 </div>
 </div>
 <div class="col-4">
-<div id="wb_waitForItMinutes" style="display:inline-block;width:100%;z-index:15;">
+<div id="wb_waitForItMinutes" style="display:inline-block;width:100%;z-index:16;">
 <h2 id="waitForItMinutes">0</h2>
 </div>
 <div id="wb_waitForItText3">
@@ -281,7 +313,7 @@ $(document).ready(function()
 </div>
 </div>
 <div class="col-5">
-<div id="wb_waitForItSeconds" style="display:inline-block;width:100%;z-index:17;">
+<div id="wb_waitForItSeconds" style="display:inline-block;width:100%;z-index:18;">
 <h2 id="waitForItSeconds">0</h2>
 </div>
 <div id="wb_waitForItText4">

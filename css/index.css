@@ -1746,6 +1746,22 @@ input:focus, textarea:focus, select:focus
    box-sizing: border-box;
    width: 100%;
 }
+#MediaPlayer1
+{
+   position: absolute;
+   left: 0;
+   top: 0;
+   width: 100%;
+   height: 100%;
+}
+#wb_MediaPlayer1
+{
+   display: block;
+   position: relative;
+   margin: 0;
+   height: 49px;
+   vertical-align: top;
+}
 #wb_footer
 {
    clear: both;
