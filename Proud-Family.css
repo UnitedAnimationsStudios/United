@@ -61,42 +61,6 @@ input:focus, textarea:focus, select:focus
    box-sizing: border-box;
    width: 100%;
 }
-#StickyLayer
-{
-   background-color: #000000;
-   background-image: none;
-   border-radius: 0px;
-   opacity: 0.77;
-}
-#wb_up-arrow
-{
-   background-color: transparent;
-   background-image: none;
-   border: 0px solid #3E3E3E;
-   border-radius: 0px;
-   text-align: center;
-   margin: 0;
-   padding: 4px 4px 4px 4px;
-   vertical-align: top;
-}
-#up-arrow
-{
-   height: 24px;
-   width: 24px;
-}
-#up-arrow i
-{
-   color: #FFFFFF;
-   display: inline-block;
-   font-size: 24px;
-   line-height: 24px;
-   vertical-align: middle;
-   width: 23px;
-}
-#up-arrow:hover i
-{
-   color: #007BFF;
-}
 #wb_header
 {
    clear: both;
@@ -223,12 +187,12 @@ input:focus, textarea:focus, select:focus
 }
 #wb_headerMenu li:hover a, #wb_headerMenu a:hover
 {
-   color: #087EEA;
+   color: #FF0000;
 }
 .headerMenu-effect:before
 {
-   border: 1px solid #087EEA;
-   background-color: #087EEA;
+   border: 1px solid #FF0000;
+   background-color: #FF0000;
    background-image: none;
 }
 #wb_headerMenu li.firstmain
@@ -287,7 +251,7 @@ input:focus, textarea:focus, select:focus
 }
 #headerMenu a:hover .headerMenu-icon
 {
-   fill: #087EEA;
+   fill: #FF0000;
 }
 #headerMenu > .active .headerMenu-icon
 {

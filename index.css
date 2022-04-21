@@ -730,12 +730,12 @@ input:focus, textarea:focus, select:focus
 }
 #wb_headerMenu li:hover a, #wb_headerMenu a:hover
 {
-   color: #087EEA;
+   color: #FF0000;
 }
 .headerMenu-effect:before
 {
-   border: 1px solid #087EEA;
-   background-color: #087EEA;
+   border: 1px solid #FF0000;
+   background-color: #FF0000;
    background-image: none;
 }
 #wb_headerMenu li.firstmain
@@ -1001,6 +1001,14 @@ input:focus, textarea:focus, select:focus
    font-weight: bold;
    font-style: normal;
    font-size: 16px;
+   -webkit-animation: animate-border 1000ms linear 0ms infinite normal both;
+   animation: animate-border 1000ms linear 0ms infinite normal both;
+}
+#wb_Card1:hover #Card1-card-item4
+{
+   border: #FFFFFF;
+   -webkit-transition: border 500ms linear 0ms;
+   transition: border 500ms linear 0ms;
 }
 #Card1-card-item4 a
 {
@@ -1745,6 +1753,22 @@ input:focus, textarea:focus, select:focus
    margin: 0;
    box-sizing: border-box;
    width: 100%;
+}
+#MediaPlayer1
+{
+   position: absolute;
+   left: 0;
+   top: 0;
+   width: 100%;
+   height: 100%;
+}
+#wb_MediaPlayer1
+{
+   display: block;
+   position: relative;
+   margin: 0;
+   height: 49px;
+   vertical-align: top;
 }
 #wb_LayoutGrid1
 {

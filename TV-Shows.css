@@ -32,6 +32,10 @@ input:focus, textarea:focus, select:focus
 {
    outline: none;
 }
+.visibility-hidden
+{
+   visibility: hidden;
+}
 #wb_Text16 
 {
    background-color: transparent;
@@ -224,12 +228,12 @@ input:focus, textarea:focus, select:focus
 }
 #wb_headerMenu li:hover a, #wb_headerMenu a:hover
 {
-   color: #087EEA;
+   color: #FF0000;
 }
 .headerMenu-effect:before
 {
-   border: 1px solid #087EEA;
-   background-color: #087EEA;
+   border: 1px solid #FF0000;
+   background-color: #FF0000;
    background-image: none;
 }
 #wb_headerMenu li.firstmain
@@ -288,7 +292,7 @@ input:focus, textarea:focus, select:focus
 }
 #headerMenu a:hover .headerMenu-icon
 {
-   fill: #087EEA;
+   fill: #FF0000;
 }
 #headerMenu > .active .headerMenu-icon
 {
@@ -297,14 +301,224 @@ input:focus, textarea:focus, select:focus
 #Banner1
 {
    margin: 0;
-   -webkit-animation: animate-border-fade 1000ms linear 0ms infinite normal both;
-   animation: animate-border-fade 1000ms linear 0ms infinite normal both;
+   -webkit-animation: animate-box-shadow 1000ms linear 0ms infinite normal both;
+   animation: animate-box-shadow 1000ms linear 0ms infinite normal both;
 }
 #Banner2
 {
+   background-image: linear-gradient(to top, #DC143C 0%, #FF6347 100%);
+   border: 1px solid #000000;
+   border-radius: 0px;
+   color: #FFFFFF;
+   font-family: Arial;
+   font-weight: bold;
+   font-style: normal;
+   font-size: 27px;
+   text-align: center;
    margin: 0;
-   -webkit-animation: animate-border-fade 1000ms linear 0ms infinite normal both;
-   animation: animate-border-fade 1000ms linear 0ms infinite normal both;
+}
+#Banner2 span
+{
+   display: block;
+   height: 27px;
+   margin: 8px 0px 8px 0px;
+}
+#Banner2 .single-char
+{
+   float: left;
+}
+#Banner2 div
+{
+   display: inline-block;
+   text-align: center;
+}
+.Banner2_ShowAnimation
+{
+   -webkit-animation: animate-classic-movie-text 1000ms linear 0s 1 normal both;
+   animation: animate-classic-movie-text 1000ms linear 0s 1 normal both;
+}
+.Banner2_HideAnimation
+{
+}
+#Banner3
+{
+   background-image: linear-gradient(to top, #959595 0%, #0D0D0D 46%, #010101 50%, #0A0A0A 52%, #4E4E4E 76%, #383838 87%, #1B1B1B 100%);
+   border: 1px solid #000000;
+   border-radius: 0px;
+   color: #FFFFFF;
+   font-family: Arial;
+   font-weight: bold;
+   font-style: normal;
+   font-size: 27px;
+   text-align: center;
+   margin: 0;
+}
+#Banner3 span
+{
+   display: block;
+   height: 27px;
+   margin: 8px 0px 8px 0px;
+}
+#Banner3 .single-char
+{
+   float: left;
+}
+#Banner3 div
+{
+   display: inline-block;
+   text-align: center;
+}
+.Banner3_ShowAnimation
+{
+   -webkit-animation: animate-classic-movie-text 1000ms linear 0s 1 normal both;
+   animation: animate-classic-movie-text 1000ms linear 0s 1 normal both;
+}
+.Banner3_HideAnimation
+{
+}
+#Banner4
+{
+   background-image: linear-gradient(to top, #FFFF00 0%, #FF4500 100%);
+   border: 1px solid #000000;
+   border-radius: 0px;
+   color: #FFFFFF;
+   font-family: Arial;
+   font-weight: bold;
+   font-style: normal;
+   font-size: 27px;
+   text-align: center;
+   margin: 0;
+}
+#Banner4 span
+{
+   display: block;
+   height: 27px;
+   margin: 8px 0px 8px 0px;
+}
+#Banner4 .single-char
+{
+   float: left;
+}
+#Banner4 div
+{
+   display: inline-block;
+   text-align: center;
+}
+.Banner4_ShowAnimation
+{
+   -webkit-animation: animate-classic-movie-text 1000ms linear 0s 1 normal both;
+   animation: animate-classic-movie-text 1000ms linear 0s 1 normal both;
+}
+.Banner4_HideAnimation
+{
+}
+#Banner5
+{
+   background-image: linear-gradient(to top, #0000CD 0%, #0963AD 100%);
+   border: 1px solid #000000;
+   border-radius: 0px;
+   color: #FFFFFF;
+   font-family: Arial;
+   font-weight: bold;
+   font-style: normal;
+   font-size: 27px;
+   text-align: center;
+   margin: 0;
+}
+#Banner5 span
+{
+   display: block;
+   height: 27px;
+   margin: 8px 0px 8px 0px;
+}
+#Banner5 .single-char
+{
+   float: left;
+}
+#Banner5 div
+{
+   display: inline-block;
+   text-align: center;
+}
+.Banner5_ShowAnimation
+{
+   -webkit-animation: animate-classic-movie-text 1000ms linear 0s 1 normal both;
+   animation: animate-classic-movie-text 1000ms linear 0s 1 normal both;
+}
+.Banner5_HideAnimation
+{
+}
+#Banner6
+{
+   background-image: linear-gradient(to top, #FF4500 0%, #A52A2A 100%);
+   border: 1px solid #0963AD;
+   border-radius: 0px;
+   color: #FFFFFF;
+   font-family: Arial;
+   font-weight: bold;
+   font-style: normal;
+   font-size: 27px;
+   text-align: center;
+   margin: 0;
+}
+#Banner6 span
+{
+   display: block;
+   height: 27px;
+   margin: 8px 0px 8px 0px;
+}
+#Banner6 .single-char
+{
+   float: left;
+}
+#Banner6 div
+{
+   display: inline-block;
+   text-align: center;
+}
+.Banner6_ShowAnimation
+{
+   -webkit-animation: animate-classic-movie-text 1000ms linear 0s 1 normal both;
+   animation: animate-classic-movie-text 1000ms linear 0s 1 normal both;
+}
+.Banner6_HideAnimation
+{
+}
+#Banner7
+{
+   background-image: linear-gradient(to top, #00008B 0%, #48D1CC 100%);
+   border: 1px solid #0963AD;
+   border-radius: 0px;
+   color: #FFFFFF;
+   font-family: Arial;
+   font-weight: bold;
+   font-style: normal;
+   font-size: 27px;
+   text-align: center;
+   margin: 0;
+}
+#Banner7 span
+{
+   display: block;
+   height: 27px;
+   margin: 8px 0px 8px 0px;
+}
+#Banner7 .single-char
+{
+   float: left;
+}
+#Banner7 div
+{
+   display: inline-block;
+   text-align: center;
+}
+.Banner7_ShowAnimation
+{
+   -webkit-animation: animate-classic-movie-text 1000ms linear 0s 1 normal both;
+   animation: animate-classic-movie-text 1000ms linear 0s 1 normal both;
+}
+.Banner7_HideAnimation
+{
 }
 #wb_footer
 {

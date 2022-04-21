@@ -28,5 +28,6 @@ function SearchDatabase()
    this[database_length++] = new SearchPage("Avengers-Assemble.html", "Avengers Assemble", "Copyright © 2022 United Animations  All Rights Reserved  Double click to edit   ", "");
    this[database_length++] = new SearchPage("Paws-of-Destiny.html", "Paws Of Destiny", "Copyright © 2022 United Animations  All Rights Reserved  Double click to edit   ", "");
    this[database_length++] = new SearchPage("Proud-Family.html", "Proud Family", "Copyright © 2022 United Animations  All Rights Reserved  Double click to edit   ", "");
+   this[database_length++] = new SearchPage("page1.html", "TV Shows", "Copyright © 2022 United Animations  All Rights Reserved   ", "");
    return this;
 }
